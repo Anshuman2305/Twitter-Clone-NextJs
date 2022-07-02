@@ -10,7 +10,7 @@ interface Props {
   tweets: Tweet[]
 }
 
-function Feed({tweets: tweetsProp}: Props) {
+function Feed({tweets: tweetsProp}: Props ) {
 
   const [tweets, setTweets] = useState<Tweet[]>(tweetsProp)
 
@@ -40,7 +40,7 @@ function Feed({tweets: tweetsProp}: Props) {
         {/*TweetBox*/}
 
         <div>
-          <TweetBox />
+          <TweetBox setTweets={setTweets} />
         </div>
 
         {/* Feed */}

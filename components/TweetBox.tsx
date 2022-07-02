@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { Dispatch, SetStateAction, useRef, useState } from "react";
 import {
   CalendarIcon,
   EmojiHappyIcon,
@@ -7,9 +7,16 @@ import {
   SearchCircleIcon,
 } from "@heroicons/react/outline";
 import { useSession } from "next-auth/react";
-import { TweetBody } from "../typings";
+import { Tweet, TweetBody } from "../typings";
+import { fetchTweets } from "../utils/fetchTweets";
+import toast from "react-hot-toast";
 
-function TweetBox() {
+interface Props {
+  setTweets: Dispatch<SetStateAction<Tweet[]>>
+}
+
+
+function TweetBox({ setTweets }: Props) {
   const [input, setInput] = useState<string>('');
   const [image, setImage] = useState<string>('');
 
@@ -28,18 +35,40 @@ function TweetBox() {
   }
 
   const postTweet = async () => {
-    const tweetBody: TweetBody = {
+    const tweetInfo: TweetBody = {
       text: input,
       username: session?.user?.name || 'Unknown User',
       profileImg: session?.user?.image || 'https://links.papareact.com/gll',
       image: image,
     }
+
+    const result = await fetch(`/api/addTweet`,{
+      body: JSON.stringify(tweetInfo),
+      method: 'POST',
+    })
+
+    const json = await result.json();
+
+    const newTweets = await fetchTweets();
+    setTweets(newTweets);
+
+    toast('Tweet Posted',{
+      icon: '🚀 '
+    })
+
+    return json;
+
   }
 
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
 
     postTweet();
+
+    setInput('')
+    setImage('')
+    setImageUrlBoxIsOpen(false)
+    
   }
 
   return (
