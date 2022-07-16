@@ -10,6 +10,8 @@
 This Website is built using Next.js with TailwindCSS and Sanity.io as my CMS(Content Management System). Used NextAuth to implement Signin Feature.</br></br>
 </p>
 
+![responsive](screenshots/responsive.png)
+
 # Sign In Feature
 
 ![Sign In Feature](screenshots/signin.gif)
