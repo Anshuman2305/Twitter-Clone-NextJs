@@ -14,9 +14,13 @@ This Website is built using Next.js with TailwindCSS and Sanity.io as my CMS(Con
 
 # Sign In Feature
 
+>Used NextAuth.js to implement 'Signin with Twitter'. One need to Signin in order to post a Tweet.
+
 ![Sign In Feature](screenshots/signin.gif)
 
 # Tweet Feature
+
+>Only after Login, we can post Tweets. We can also include a Image in our Tweet.
 
 ![Tweet](screenshots/tweet.gif)
 
@@ -24,29 +28,14 @@ This Website is built using Next.js with TailwindCSS and Sanity.io as my CMS(Con
 
 ![Comment](screenshots/comment.gif)
 
-# Fully Reponsive 
+# Sanity.io Dashboard
 
-![Responsive](screenshots/comment.gif)
-
-# Fully Functional Comment Feature
->On Submission, the Comment goes straight to the Sanity CMS and get logged there.
-> 
-![comment](github_img/img2.png)
-
->Here we can see, the Stored Comments on Sanity CMS. 
-> 
-![sanity cms](github_img/img3.png)
-
->To show the comment on the Blog page, we(moderator) have/has to approve the comment.  
-> 
-![approval system](github_img/img4.png)
-
->Voila!!! Our Comment is Live on the Blog Page.
-> 
-![display comment](github_img/img6.png)
+![dashboard](screenshots/post_sanity.png)
+![dashboard](screenshots/comment_sanity.png)
 
 
-## Getting Started with Next.js
+
+# Getting Started with Next.js
 
 Visit <a aria-label="next.js learn" href="https://nextjs.org/learn">https://nextjs.org/learn</a> to get started with Next.js.
 
@@ -54,7 +43,7 @@ Visit <a aria-label="next.js learn" href="https://nextjs.org/learn">https://next
 <code>npm run dev</code>
 
 
-## Getting Started with Sanity.io
+# Getting Started with Sanity.io
 
 - To run the Sanity Dashboard : 
 <code>cd anshumanblogapp</code> then
